@@ -143,6 +143,8 @@
     failed_when: >-
       r_postgres_init.rc != 0 and
       'Data directory is not empty!' not in r_postgres_init.stdout
+    changed_when: >-
+      r_postgres_initdb.rc == 0 
 
   - name: initilize postgres some more
     command: chkconfig postgresql on
